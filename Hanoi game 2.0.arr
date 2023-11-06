@@ -61,23 +61,20 @@ end
 
 
 
-fun move(from-s, to-s)
-
-from-stake = state-lists.get(from-s)
-from-ring = top-ring(state-lists.get(from-s))
-replaced-from-ring = from-stake.set(from-ring - 1, from-s)
-removed-from-ring-state-lists = state-lists.set(from-s, replaced-from-ring)
+  from-stake = state-lists.get(0)
+  from-ring = top-ring(state-lists.get(0))
+  replaced-from-ring = from-stake.set(from-ring - 1, 0)
+  removed-from-ring-state-lists = state-lists.set(0, replaced-from-ring)
 
 
 # to-ring
 
-to-stake = removed-from-ring-state-lists.get(to-s)
+  to-stake = removed-from-ring-state-lists.get(2)
 where-to-place-ring = top-ring(to-stake)
 place-ring = to-stake.set(where-to-place-ring, from-ring)
 
-new-state-lists = removed-from-ring-state-lists.set(to-s, place-ring)
-  
-end
+  new-state-lists = removed-from-ring-state-lists.set(2, place-ring)
+
 
 
 
